@@ -47,14 +47,16 @@ class RegisteredUserController extends Controller
 
 
 
-
         User::create([
             'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect('added');
+        // セッションを使用してユーザー名を表示させる
+        $user = $request->get('username');
+        return redirect('added')->with('username', $user);
+
     }
 
     public function added(): View
