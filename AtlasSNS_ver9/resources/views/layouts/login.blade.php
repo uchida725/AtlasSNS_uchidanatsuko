@@ -27,6 +27,13 @@
 <body>
   <header>
     @include('layouts.navigation')
+    <!-- Auth認証したあとに名前が表示されるようにヘッダーに設定 -->
+    <!-- <div id="head">
+      <h1><a href="/top"><img src="images/atlas.png" alt="Atlas"></a></h1> -->
+      <!-- ↑アトラスロゴにヘッダーへ戻るリンクを設定 -->
+      <!-- <p>{{Auth::user()->username}}さん<img src="images/icon1.png"></p> -->
+<!-- ↑auth認証したあとにここにログイン名が表示されるようにする -->
+    <!-- </div> -->
   </header>
   <!-- Page Content -->
   <div id="row">
@@ -35,7 +42,7 @@
     </div>
     <div id="side-bar">
       <div id="confirm">
-        <p>〇〇さんの</p>
+        <p>{{Auth::user()->username}}さんの</p>
         <div>
           <p>フォロー数</p>
           <p>〇〇名</p>
