@@ -24,25 +24,25 @@ Route::middleware('guest')->group(function () {
 
 // ログイン中のページ
 
-Route::group(['middleware' => 'auth'], function () {
+// Route::group(['middleware' => 'auth'], function () {
 
     // トップページへ
-    Route::get('/top', [PostsController::class, 'index']);//取得するため
-    Route::post('/top', [PostsController::class, 'index']);//指定のルートへ
+//     Route::get('/top', [PostsController::class, 'index']);//取得するため
+//     Route::post('/top', [PostsController::class, 'index']);//指定のルートへ
 
-    // プロフィール編集ページへ
-    Route::get('/profile', [UsersController::class, 'profile']);
+//     // プロフィール編集ページへ
+//     Route::get('/profile', [UsersController::class, 'profile']);
 
-// ユーザー検索ページへ
-    Route::get('/search', [UsersController::class, 'search']);
+// // ユーザー検索ページへ
+//     Route::get('/search', [UsersController::class, 'search']);
 
-    Route::post('/follow-list', [PostsController::class, 'followList']);
-    Route::post('/follower-list', [PostsController::class, 'followerList']);
+//     Route::post('/follow-list', [PostsController::class, 'followList']);
+//     Route::post('/follower-list', [PostsController::class, 'followerList']);
 
-    // ログアウト
-    Route::get('/logout', [PostsController::class, 'logout']);
+//     // ログアウト
+//     Route::get('/logout', [PostsController::class, 'logout']);
 
-    // フォロー、フォロワーページへ
-    Route::get('/follow-list', [FollowsController::class, 'followList']);
-    Route::get('/follower-list', [FollowsController::class, 'followerList']);
-});
+//     // フォロー、フォロワーページへ
+//     Route::get('/follow-list', [FollowsController::class, 'followList']);
+//     Route::get('/follower-list', [FollowsController::class, 'followerList']);
+// });
