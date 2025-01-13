@@ -50,7 +50,7 @@ header {
 }
 
 .menu-btn::after {
-    content: '>';
+    content: '＞';
     position: absolute;
     display: block;
     width: 8px;
