@@ -22,18 +22,22 @@
   <!--iphoneのアプリアイコン指定-->
   <link rel="apple-touch-icon-precomposed" href="画像のURL" />
   <!--OGPタグ/twitterカード-->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<!-- <script>
+    $(document).ready(function () {
+  $('.menu-btn').on('click', function () {
+    const content = $(this).next();
+    content.slideToggle();
+    $('.menu-btn').not(content).slideUp(); // 他のメニューを閉じる
+  });
+});
+</script> -->
+
 </head>
 
 <body>
   <header>
     @include('layouts.navigation')
-    <!-- Auth認証したあとに名前が表示されるようにヘッダーに設定 -->
-    <!-- <div id="head">
-      <h1><a href="/top"><img src="images/atlas.png" alt="Atlas"></a></h1> -->
-      <!-- ↑アトラスロゴにヘッダーへ戻るリンクを設定 -->
-      <!-- <p>{{Auth::user()->username}}さん<img src="images/icon1.png"></p> -->
-<!-- ↑auth認証したあとにここにログイン名が表示されるようにする -->
-    <!-- </div> -->
   </header>
   <!-- Page Content -->
   <div id="row">
