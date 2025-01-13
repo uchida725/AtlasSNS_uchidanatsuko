@@ -23,6 +23,8 @@
   <link rel="apple-touch-icon-precomposed" href="画像のURL" />
   <!--OGPタグ/twitterカード-->
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="/path/to/script.js"></script>
+
 <!-- <script>
     $(document).ready(function () {
   $('.menu-btn').on('click', function () {

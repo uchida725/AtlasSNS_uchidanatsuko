@@ -10,7 +10,6 @@
                         <p>{{Auth::user()->username}}さん</p>
                         <div class="menu-btn"></div>
                         <nav>
-                            <!-- <a href="" class="menu-btn"></a> -->
                 <ul class="tag">
                     <li><a href="/top">HOME</a></li>
                     <li><a href="/profile">プロフィール編集</a></li>
