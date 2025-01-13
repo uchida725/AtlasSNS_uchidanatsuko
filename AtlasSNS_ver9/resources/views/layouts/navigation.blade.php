@@ -1,4 +1,6 @@
  <div id="head">
+    <script src="{{ asset('js/script.js') }}"></script>
+
             <!-- ↓↓アトラスロゴにヘッダーへ戻るリンクを設定 -->
             <h1><a href="/top"><img src="images/atlas.png" alt="Atlas"></a></h1>
             <!-- <div id="">
@@ -6,8 +8,9 @@
                 <!-- </div> -->
                 <div class="nav-open">
                         <p>{{Auth::user()->username}}さん</p>
+                        <div class="menu-btn"></div>
                         <nav>
-                            <a href="" class="menu-btn"></a>
+                            <!-- <a href="" class="menu-btn"></a> -->
                 <ul class="tag">
                     <li><a href="/top">HOME</a></li>
                     <li><a href="/profile">プロフィール編集</a></li>
