@@ -25,8 +25,4 @@ class PostsController extends Controller
         return view('posts.index');
     }
 
-//     public function logout()
-//     {
-    //     return view('login');
-    // }
 }

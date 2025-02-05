@@ -5,13 +5,14 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
 
 
 // ログアウト中のページ
 
 Route::middleware('guest')->group(function () {
 
-    Route::get('/login', [AuthenticatedSessionController::class, 'create']);
+    Route::get('/login', [AuthenticatedSessionController::class, 'create'])->name('login');
     Route::post('/login', [AuthenticatedSessionController::class, 'store']);
 
     Route::get('/register', [RegisteredUserController::class, 'create']);
@@ -30,8 +31,10 @@ Route::group(['middleware' => 'auth'], function () {
 Route::get('/top', [PostsController::class, 'index']);//取得するため
 Route::post('/top', [PostsController::class, 'index']);//指定のルートへ
 
-//     // プロフィール編集ページへ
-Route::get('/profile', [UsersController::class, 'updateProfile']);
+// プロフィール画面の表示
+Route::get('users/profile', [ProfileController::class, 'profile'])->name('profile');
+// プロフィールを更新させる
+Route::post('users/profile', [ProfileController::class, 'updateProfile'])->name('profile.update');
 
 // // ユーザー検索ページへ
 //     Route::get('/search', [UsersController::class, 'search']);
@@ -40,7 +43,7 @@ Route::get('/profile', [UsersController::class, 'updateProfile']);
 //     Route::post('/follower-list', [PostsController::class, 'followerList']);
 
 //     // ログアウト
-//     Route::get('/logout', [PostsController::class, 'logout']);
+Route::get('/logout', [AuthenticatedSessionController::class, 'logout']);
 
 //     // フォロー、フォロワーページへ
 //     Route::get('/follow-list', [FollowsController::class, 'followList']);
