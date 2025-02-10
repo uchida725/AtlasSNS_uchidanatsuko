@@ -17,12 +17,9 @@
 
     <!-- ログインユーザーのアイコンの表示 -->
 <!-- <img class="update-icon" src="images/icon1.png"> -->
-<img class="update-icon"
-     src="{{ Auth::user()->icon_image ? asset('storage/' . Auth::user()->images) : asset('images/default-icon.png') }}"
-     alt="プロフィール画像"
-     style="width: 100px; height: 100px; border-radius: 50%;">
-
-
+<!-- <img class="update-icon" src="{{ asset('storage/', Auth::user()->icon_image) }}"> -->
+ <!-- <figure><img class="update-icon" src="{{ asset( Auth::user()->icon_image) }}"></figure> -->
+  <img class="update-icon" src="{{ asset('storage/' . Auth::user()->icon_image) }}">
 <div class="update-form">
     <div class="update-block"><!--ユーザー名-->
       <label for="name">User name</label>
@@ -30,7 +27,8 @@
     </div>
     <div class="update-block"> <!--メールアドレス-->
       <label for="mail">Mail Address</label>
-      <input type="email" name="mail" value="{{Auth::user()->email}}">
+      <!-- <input type="email" name="mail" value="{{Auth::user()->email}}"> -->
+       <input type="email" name="email" value="{{ old('email', Auth::user()->email) }}" required>
     </div>
     <div class="update-block"> <!--パスワード-->
       <label for="pass">password</label>
@@ -53,6 +51,16 @@
 
     <button type="submit">更新</button>
 </div>
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
  <!--アイコン画像アップロード（任意）-->
     <!-- <div class="update-block">
