@@ -16,13 +16,17 @@ use App\Models\User;
 
 class ProfileController extends Controller
 {
+    //  profiles.profile というビュー（画面）を表示するだけ！
     public function profile(){
         return view('profiles.profile');
     }
 
+
+    // プロフィール情報を更新する処理 ↓
     public function updateProfile(Request $request) {
         // dd($request);
         // バリデーションメッセージを先に書く。その後に、処理を書くことで、第２引数の$messageが処理される！
+        // 🔹 エラーメッセージを設定（「この入力が間違ってたら、こういうメッセージを出すよ！」というルールを決める）↓
         $message = [
             'username.required' => 'ユーザー名を入力してください',
             'username.min' => 'ユーザー名は2文字以上、12文字以下で入力してください',
@@ -30,8 +34,9 @@ class ProfileController extends Controller
             'email.required' => 'メールアドレスを入力してください',
             'email.min' => 'メールアドレスは5文字以上、40文字以下で入力してください',
             'email.max' => 'メールアドレスは5文字以上、40文字以下で入力してください',
-            'password.alpha_num' => 'パスワードは半角英数字で入力してください',
-            'password.min' => 'パスワードは8文字以上で入力してください',
+            'password.required' => 'パスワードを入力してください(※半角英数字・8〜20文字以内)',
+            // 'password.alpha_num' => 'パスワードは半角英数字で入力してください',
+            // 'password.min' => 'パスワードは8文字以上で入力してください',
             'password.confirmed' => 'パスワードが一致しません',
             'bio.max'=>'紹介文は150文字以内で入力してください',
             'images.alpha_dash' => 'ファイル名は英数字のみです',
@@ -39,51 +44,28 @@ class ProfileController extends Controller
         ];
 
 
-    // $request->validate([
-    //     'username' => 'required|string|min:2|max:12',
-    //     'email' => 'required|email',
-    //     'password' => 'nullable|min:8|confirmed', // 🔹 パスワード確認用 `confirmed` を追加！
-    //     'bio' => 'nullable|string|max:100',
-    //     'icon_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // 画像のバリデーション
-    // ], $message); //←第二引数にエラーメッセージを渡す記述
 
 
-
-    $validatedData = $request->validate([
+    // 🔷バリデーションルール
+        $validatedData = $request->validate([
             'username' => 'required|string|min:2|max:12',
             'email' => 'required|email|min:5|max:40',
-            'password' => 'nullable|alpha_num|min:8|max:20|confirmed',
-            // 'password_confirmation' => 'required|alpha_num|min:8|max:20',
+            'password' => 'required|alpha_num|min:8|max:20|confirmed',
+            'password_confirmation' => 'required|alpha_num|min:8|max:20',
             'bio' => 'nullable|string|max:150',
             'images' => 'mimes:jpg,png,bmp,gif,svg',
         ], $message);
 
 
-    //   try {
-    //     $validatedData = $request->validate([
-    //         'username' => 'required|string|min:2|max:12',
-    //         'email' => 'required|email|min:5|max:40',
-    //         // 'password' => 'nullable|alpha_num|min:8|max:20|confirmed',
-    //         'bio' => 'nullable|string|max:150',
-    //         // 'images' => 'nullable|alpha_dash|mimes:jpg,png,bmp,gif,svg',
-    //     ], $message);
 
-    //     // 🔹 デバッグ用にバリデーション成功データをログに出す
-    //     \Log::info('Validation successful:', $validatedData);
-
-    //     return redirect()->back()->with('success', 'プロフィールが更新されました！');
-
-    // } catch (ValidationException $e) {
-    //     // 🔥 エラーメッセージを取得
-    //     \Log::error('Validation failed:', $e->errors());
-
-    //     return redirect()->back()->withErrors($e->errors())->withInput();
-    // }
-
+// 画像アップロード処理
+// もし アイコン画像が送られてきたら、保存する！
 if ($request->hasFile('icon_image')) {
-    $file = $request->file('icon_image');
-    $path = $file->store('icons', 'public');
-    Auth::user()->update(['icon_image' => $path]);
+    $file = $request->file('icon_image');// 画像ファイルを取得
+    $path = $file->store('icons', 'public');// "icons"フォルダに保存
+    // store('icons', 'public') は、storage/app/public/icons/ に保存するという意味。
+    Auth::user()->update(['icon_image' => $path]);// ユーザーのアイコン画像を更新
+
 }
 
 
@@ -95,32 +77,24 @@ if ($request->hasFile('icon_image')) {
         // dd($username);
 
 
-    $user = Auth::user();
+    // 🔹 Auth::user() を使って、ログイン中のユーザーの情報 を取得！
+    $user = Auth::user();// 今ログインしているユーザーを取得
 
-    // // 画像のアップロード処理
-    // if ($request->hasFile('icon_image')) {
-    //     // 既存のアイコンを削除
-    //     if ($user->icon_image) {
-    //         Storage::delete('public/' . $user->icon_image);
-    //     }
 
-    //     // 画像を保存
-    //     $iconPath = $request->file('icon_image')->store('icons', 'public');
-    // } else {
-    //     // 画像がアップロードされなかった場合は、元の画像をそのまま
-    //     $iconPath = $user->icon_image;
-    // }
-
-    // 🔹 パスワードが入力されたときだけ更新（空なら変更しない）
+// ユーザー情報の更新
     $user->update([
         'username' => $request->username,
         'email' => $request->email,
         'bio' => $request->bio,
-        'icon_image' => $iconPath, // 🔹 画像のパスを保存
+        // 'icon_image' => $iconPath, // 🔹 画像のパスを保存
         'password' => $request->password ? Hash::make($request->password) : $user->password,
+        // 🔹 パスワードが入力されたときだけ更新（空なら変更しない）
+        // → Hash::make($request->password) で暗号化して保存する
     ]);
     // dd($iconPath);
 
+
+    // 🔹 更新が終わったら、元のページに戻ってメッセージを表示！
     return redirect()->back()->with('success', 'プロフィールを更新しました！');
 }
 }

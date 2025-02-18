@@ -2,18 +2,26 @@
 <div class="container">
   <div class="update">
     <!-- {!! Form::open(['url' => route('profile.update'),'method' =>'post','enctype' =>'multipart/form-data']) !!} -->
-     {!! Form::open(['url' => 'users/profile']) !!}
+     {!! Form::open(['url' => 'users/profile', "enctype" => "multipart/form-data"]) !!}
+     <!-- ↑保護しながらフォームタグの作成。送信先のURLの設定。<form action="/profile" method="post">の略。 -->
+     <!-- "enctype" => "multipart/form-data"はファイルアップロードを可能にするための設定。 -->
+      <!-- なぜ multipart/form-data が必要？ -->
+<!-- もしフォームで 画像やファイルをアップロード したい場合、multipart/form-data を設定しないと正しく送信できない -->
+<!-- 例えば、<input type="file"> を使う時には 必須 ！ -->
+
     @csrf
-    <!-- ↑保護しながらフォームタグの作成。送信先のURLの設定。<form action="/profile" method="post">の略。 -->
+    <!-- ↑Laravelでは、POST・PUT・DELETEリクエスト などを送るときに、CSRFトークン がないとリクエストを受け付けないようになっている -->
+
     {{Form::hidden('id',Auth::user()->id)}}
     <!-- ↑フォームを送信するときに、一緒にユーザーのIDを送るための記述。
     <input type="hidden" name="id" value="{{Auth::user()->id}}">の略。-->
+
 @if (session('success'))
     <div class="alert alert-success">
         {{ session('success') }}
     </div>
 @endif
-
+<!-- ↑成功メッセージ（Success Message） を表示するためのもの -->
 
     <!-- ログインユーザーのアイコンの表示 -->
 <!-- <img class="update-icon" src="images/icon1.png"> -->
