@@ -5,7 +5,7 @@
      {!! Form::open(['url' => 'users/profile', "enctype" => "multipart/form-data"]) !!}
      <!-- ↑保護しながらフォームタグの作成。送信先のURLの設定。<form action="/profile" method="post">の略。 -->
      <!-- "enctype" => "multipart/form-data"はファイルアップロードを可能にするための設定。 -->
-      <!-- なぜ multipart/form-data が必要？ -->
+      <!-- 💡なぜ multipart/form-data が必要？ -->
 <!-- もしフォームで 画像やファイルをアップロード したい場合、multipart/form-data を設定しないと正しく送信できない -->
 <!-- 例えば、<input type="file"> を使う時には 必須 ！ -->
 
@@ -27,6 +27,7 @@
 <!-- <img class="update-icon" src="images/icon1.png"> -->
 <!-- <img class="update-icon" src="{{ asset('storage/', Auth::user()->icon_image) }}"> -->
  <!-- <figure><img class="update-icon" src="{{ asset( Auth::user()->icon_image) }}"></figure> -->
+  <!-- asset('storage/' . Auth::user()->icon_image) で、public/storage/ の画像を表示できる！ -->
   <img class="update-icon" src="{{ asset('storage/' . Auth::user()->icon_image) }}">
 <div class="update-form">
     <div class="update-block"><!--ユーザー名-->
