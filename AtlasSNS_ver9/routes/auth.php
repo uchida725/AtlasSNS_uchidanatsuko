@@ -6,7 +6,7 @@ use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
-
+use App\Http\Controllers\PostsController;
 
 // ログアウト中のページ
 
@@ -28,8 +28,13 @@ Route::middleware('guest')->group(function () {
 Route::group(['middleware' => 'auth'], function () {
 
     // トップページへ
-Route::get('/top', [PostsController::class, 'index']);//取得するため
-Route::post('/top', [PostsController::class, 'index']);//指定のルートへ
+// Route::get('/top', [PostsController::class, 'index']);//取得するため
+// Route::post('/top', [PostsController::class, 'index']);//指定のルートへ
+
+//投稿機能画面
+Route::get('post/create', [PostsController::class, 'index']);
+Route::post('post/create', [PostsController::class, 'postCreate']);
+
 
 // プロフィール画面の表示
 Route::get('users/profile', [ProfileController::class, 'profile'])->name('profile');

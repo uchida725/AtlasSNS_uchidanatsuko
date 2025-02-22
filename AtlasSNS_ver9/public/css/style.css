@@ -88,20 +88,32 @@ header {
     border: 1px solid;
     white-space: nowrap;
     text-align: center;
+    background-color: #fff;
 }
 
 
 /* main content */
+/* メインコンテンツのレイアウト */
 #row {
     display: flex;
-    flex-flow: row wrap;
+    flex-wrap: nowrap;
+    margin: 20px auto;
+    max-width: 1500px;
 }
 
+/* 左側 (投稿エリア) */
 #container {
-    flex: 0 0 80%;
+    background-color: #fff;
 }
+
 
 #side-bar {
     flex: 0 0 19%;
     border-left: 1px solid #727272;
+    background-color: #fff;
+    padding: 20px;
+}
+
+#head img {
+    height: 40px;
 }
