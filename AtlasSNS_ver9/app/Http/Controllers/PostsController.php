@@ -14,12 +14,8 @@ class PostsController extends Controller
 // トップページ
     public function index()
     {
-        // dd("123");
-        // $user = Auth::user();//ログインしたユーザー情報の取得
-        // $post = Post::get();//postsテーブルから全てのレコード情報取得
-
-        // return view('posts.index',['post'=> $post,'user'=> $user]);//viewで表示する
-        $list=Post::get();
+        $list =Post::orderBy('created_at','desc')->get();
+        // $list=Post::get();
         return view('posts.index',['list'=>$list]);
     }
 
@@ -45,7 +41,22 @@ class PostsController extends Controller
             'user_id'=>$user_id,
             'post'=>$post
         ]);
+        // return redirect('/top');
+        return back();
+    }
+
+    public function postUpdate(Request $request)
+    {
+        $id = $request->input('id');
+        $up_post = $request->input('upPost');
+        Post::where('id',$id)->update(['post'=>$up_post]);
         return redirect('/top');
     }
 
+    // 投稿の削除
+    public function delete($id)
+    {
+        Post::where('id', $id)->delete();
+        return redirect('/top');
+    }
 }

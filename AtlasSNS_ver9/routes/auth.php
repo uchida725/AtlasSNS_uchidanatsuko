@@ -34,6 +34,10 @@ Route::group(['middleware' => 'auth'], function () {
 //投稿機能画面
 Route::get('post/create', [PostsController::class, 'index']);
 Route::post('post/create', [PostsController::class, 'postCreate']);
+// 投稿更新
+Route::post('/post/update', [PostsController::class, 'postUpdate']);
+// 削除
+Route::get('/post/{id}/delete', [PostsController::class, 'delete']);
 
 
 // プロフィール画面の表示
