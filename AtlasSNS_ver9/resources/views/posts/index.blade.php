@@ -1,26 +1,49 @@
 <x-login-layout>
 <div class="container">
-<p class="page-header"><img src="images/icon1.png"width="50"height="50"></p>
+<!-- <p class="page-header"><img src="images/icon1.png"width="50"height="50"></p> -->
 {!! Form::open(['url' => '/post/create']) !!}
+<!-- ↓バリデーションのエラーメッセージ -->
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 <div class="form-group">
+  <p class="page-header"><img src="images/icon1.png"width="50"height="50"></p>
   {{ Form::input('text', 'newPost', null, ['required', 'class' => 'form-control', 'placeholder' => '投稿内容を入力してください。']) }}
 </div>
-<button type="submit" class="btn btn-success pull-right"><img src="images/post.png"width="30"height="30" alt="送信"></button>
+<button type="submit" class="btn btn-success pull-right"><img src="images/post.png"width="50"height="50" alt="送信"></button>
 {!! Form::close() !!}
 </div>
 <div>
   @foreach ($list as $list)
-<tr>
-  <td>{{ $list->user_id }}</td>
-  <td>{{$list->post}}</td>
-  <td>{{$list->created_at}}</td>
-  <!-- 更新用 -->
-   <td><div class="contents">
-    <a class="js-modal-open" href="" post="{{ $list->post }}" post_id="{{ $list->id }}"><img src="./images/edit.png" alt="編集"></a>
-   </div></td>
-   <!-- 消去用 -->
-    <td><a class="btn btn-danger" href="/post/{{$list->id}}/delete" onclick="return confirm('この投稿を削除します。よろしいですか？')"><img src="./images/trash.png" alt="消去"></a></td>
-</tr>
+<div class="list">
+  <div class="left-list">
+    <div class="up-time">{{$list->created_at}}</div>
+    <div class="icon-name">
+      <img class="form-icon" src="images/icon1.png" width="35" height="35">
+    <div class="post-username">{{ $list->user->username }}</div>
+  </div>
+  <div class="post-user">
+    <!-- <div class="post-username">{{ $list->user->username }}</div> -->
+    <div>{{$list->post}}</div>
+</div>
+   <div>
+    <div class="contents">
+      <!-- <div>{{$list->created_at}}</div> -->
+    <!-- 更新用 -->
+    <a class="js-modal-open" href="" post="{{ $list->post }}" post_id="{{ $list->id }}"><img class="Update" src="./images/edit.png" alt="編集"></a>
+    <!-- 消去用 -->
+    <td><a class="btn btn-danger" href="/post/{{$list->id}}/delete" onclick="return confirm('この投稿を削除します。よろしいですか？')"><img class="Trash" src="./images/trash.png" alt="消去"></a></td>
+   </div></div>
+  </>
+</div>
+  </div>
 @endforeach
 </div>
 

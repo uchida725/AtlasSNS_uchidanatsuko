@@ -104,6 +104,8 @@ header {
 /* 左側 (投稿エリア) */
 #container {
     background-color: #fff;
+    padding-left: 30px;
+    margin-left: 10px;
 }
 
 
@@ -150,4 +152,86 @@ header {
     top: 50%;
     transform: translate(-50%, -50%);
     width: 60%;
+}
+
+/* フォーム全体 */
+.container {
+    border-bottom: 6px solid #e0e0e0;
+}
+
+/* 更新ボタン */
+.Update {
+    width: 40px;
+    height: auto;
+    cursor: pointer;
+    transition: .3s;
+    background-color: #fff;
+}
+
+/* 削除ボタンのタグ */
+.Trash {
+    width: 40px;
+    height: auto;
+    cursor: pointer;
+    transition: .3s;
+    background-color: #fff;
+}
+
+/* ホバーしたら削除画像が反転 */
+.Trash a:hover {
+    background-image: url('./images/trash-h.png');
+}
+
+/* 投稿フォーム全体（アイコン・フォーム・ボタンのバランス） */
+.form-group {
+    display: flex;
+    margin-bottom: none;
+}
+
+/* フォーム部分 */
+.form-control {
+    width: 50%;
+    height: 36px;
+    padding: 30px;
+    background-color: #fff;
+    margin-top: 40px;
+    margin-left: 40px;
+    margin-bottom: 0px;
+    border: none;
+    box-shadow: none;
+}
+
+/* 投稿エリア部分 */
+.page-header {
+    padding-bottom: 10px;
+    margin: 44px 0 22px;
+    border-bottom: none;
+}
+
+/* 送信紙飛行機ボタン */
+.btn-success {
+    color: #fff;
+    background-color: #fff;
+    border-color: #fff;
+    margin-right: 40%;
+}
+
+/* どこかよくわかんないが下のボーダーライン */
+.left-list {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* 投稿したアイコンとユーザー名 */
+.icon-name {
+    display: flex;
+}
+
+/* 更新と削除ボタンの配置 */
+.contents {
+    text-align: right;
+}
+
+/* 投稿した時間の配置 */
+.up-time {
+    text-align: right;
 }

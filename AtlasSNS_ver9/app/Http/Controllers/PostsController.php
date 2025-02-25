@@ -19,21 +19,20 @@ class PostsController extends Controller
         return view('posts.index',['list'=>$list]);
     }
 
-    // 投稿機能
-    // public function create(Request $request)
-    // {
-    //     $id = Auth::id();//ログインユーザーidの取得
-    //     $post = $request->input('newPost');//つぶやきを取得
-    //     Post::get('posts')->insert([//postテーブルに送る
-    //         'post' => $post,//postカラムを$postに入れる
-    //         'user_id' => $id//user_idカラムを$idに入れる
-    //     ]);
-
-    //     return redirect('/top');
-    // }
-
+// 投稿の作成
     public function postCreate(Request $request)
     {
+        // バリデーション
+        $message = [
+            'newPost.max' => '投稿文は150文字以内で入力してください',
+        ];
+        // dd($message);
+
+        $validatedData = $request->validate([
+            'newPost' => 'required|min:1|max:150',
+        ], $message);
+
+
         // dd("123");
         $post=$request->input('newPost');
         $user_id=Auth::user()->id;
@@ -45,6 +44,7 @@ class PostsController extends Controller
         return back();
     }
 
+    // 投稿の更新
     public function postUpdate(Request $request)
     {
         $id = $request->input('id');
