@@ -163,24 +163,22 @@ header {
 .Update {
     width: 40px;
     height: auto;
-    cursor: pointer;
-    transition: .3s;
     background-color: #fff;
 }
+
 
 /* 削除ボタンのタグ */
 .Trash {
     width: 40px;
     height: auto;
-    cursor: pointer;
-    transition: .3s;
     background-color: #fff;
 }
 
 /* ホバーしたら削除画像が反転 */
-.Trash a:hover {
-    background-image: url('./images/trash-h.png');
+.Trash:hover {
+    background-image: url('/images/trash-h.png');
 }
+
 
 /* 投稿フォーム全体（アイコン・フォーム・ボタンのバランス） */
 .form-group {
