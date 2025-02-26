@@ -160,24 +160,54 @@ header {
 }
 
 /* 更新ボタン */
-.Update {
+.update_image {
+    /* position: relative; */
     width: 40px;
     height: auto;
     background-color: #fff;
+    margin-right: 10px;
+    /* overflow: hidden; */
+    /* cursor: pointer; */
 }
+
+
+/* .update_btn img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: auto;
+    -webkit-transition: .4s ease-in-out;
+    transition: .4s ease-in-out;
+} */
+
+/* ホバーしたら反転 */
+/* .update_btn:hover img:nth-of-type(2) {
+    opacity: 0;
+} */
 
 
 /* 削除ボタンのタグ */
-.Trash {
-    width: 40px;
-    height: auto;
-    background-color: #fff;
+
+.delete_btn {
+    position: relative;
 }
 
-/* ホバーしたら削除画像が反転 */
-.Trash:hover {
-    background-image: url('/images/trash-h.png');
+.delete_btn img {
+    position: absolute;
+    width: 40px;
+    height: auto;
+    -webkit-transition: .4s ease-in-out;
+    transition: .4s ease-in-out;
 }
+
+/* ホバーしたら反転 */
+.delete_btn:hover img:nth-of-type(2) {
+    opacity: 0;
+}
+
 
 
 /* 投稿フォーム全体（アイコン・フォーム・ボタンのバランス） */
@@ -227,6 +257,7 @@ header {
 /* 更新と削除ボタンの配置 */
 .contents {
     text-align: right;
+    margin-right: 50px;
 }
 
 /* 投稿した時間の配置 */

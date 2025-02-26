@@ -30,18 +30,21 @@
     <div class="post-username">{{ $list->user->username }}</div>
   </div>
   <div class="post-user">
-    <!-- <div class="post-username">{{ $list->user->username }}</div> -->
     <div>{{$list->post}}</div>
 </div>
    <div>
     <div class="contents">
-      <!-- <div>{{$list->created_at}}</div> -->
-    <!-- 更新用 -->
-    <a class="js-modal-open" href="" post="{{ $list->post }}" post_id="{{ $list->id }}"><img class="Update" src="./images/edit.png" alt="編集"></a>
+    <!-- 編集用 -->
+    <a class="js-modal-open" href="" post="{{ $list->post }}" post_id="{{ $list->id }}">
+      <img class="update_image" src="./images/edit.png" alt="編集">
+  </a>
     <!-- 消去用 -->
-    <td><a class="btn btn-danger" href="/post/{{$list->id}}/delete" onclick="return confirm('この投稿を削除します。よろしいですか？')"><img class="Trash" src="./images/trash.png" alt="消去"></a></td>
-   </div></div>
-  </>
+    <a class="delete_btn" href="/post/{{$list->id}}/delete" onclick="return confirm('この投稿を削除します。よろしいですか？')">
+    <img src="./images/trash-h.png" alt="ホバー中消去">
+    <img src="./images/trash.jpeg" alt="消去">
+  </a>
+   </div>
+  </div>
 </div>
   </div>
 @endforeach
