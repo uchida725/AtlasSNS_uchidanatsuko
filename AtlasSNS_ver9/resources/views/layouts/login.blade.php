@@ -25,16 +25,6 @@
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script src="/path/to/script.js"></script>
 
-<!-- <script>
-    $(document).ready(function () {
-  $('.menu-btn').on('click', function () {
-    const content = $(this).next();
-    content.slideToggle();
-    $('.menu-btn').not(content).slideUp(); // 他のメニューを閉じる
-  });
-});
-</script> -->
-
 </head>
 
 <body>
@@ -53,14 +43,14 @@
           <p>フォロー数</p>
           <p>〇〇名</p>
         </div>
-        <p class="btn"><a href="">フォローリスト</a></p>
+        <p class="btn"><a href="/follow-list">フォローリスト</a></p>
         <div>
           <p>フォロワー数</p>
           <p>〇〇名</p>
         </div>
         <p class="btn"><a href="">フォロワーリスト</a></p>
       </div>
-      <p class="btn"><a href="">ユーザー検索</a></p>
+      <p class="btn"><a href="/search">ユーザー検索</a></p>
     </div>
   </div>
   <footer>

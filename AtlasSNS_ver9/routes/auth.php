@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\UsersController;
 
 // ログアウト中のページ
 
@@ -46,15 +47,23 @@ Route::get('users/profile', [ProfileController::class, 'profile'])->name('profil
 Route::post('users/profile', [ProfileController::class, 'updateProfile'])->name('profile.update');
 
 // // ユーザー検索ページへ
-//     Route::get('/search', [UsersController::class, 'search']);
+Route::get('/search', [UsersController::class, 'search'])->name('search');
+Route::post('/search', [UsersController::class, 'search']);
+
+
 
 //     Route::post('/follow-list', [PostsController::class, 'followList']);
 //     Route::post('/follower-list', [PostsController::class, 'followerList']);
 
+
+// フォロー・フォロワー
+Route::post('/users/{user}/follow', [FollowsController::class, 'follow'])->name('follow');
+Route::post('/users/{user}/unfollow', [FollowsController::class, 'unfollow'])->name('unfollow');
+
 //     // ログアウト
 Route::get('/logout', [AuthenticatedSessionController::class, 'logout']);
 
-//     // フォロー、フォロワーページへ
-//     Route::get('/follow-list', [FollowsController::class, 'followList']);
+// フォロー、フォロワーページへ
+// Route::get('/follow-list', [FollowsController::class, 'followList'])->name('follow.list');
 //     Route::get('/follower-list', [FollowsController::class, 'followerList']);
  });
