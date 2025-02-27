@@ -10,13 +10,13 @@
 @endif
 {!! Form::close() !!}
 
-@foreach ($users as $users)
+@foreach ($users as $user)
 <div>
   <tr>
     <td>
       <img src="storage/{{ $users -> images }}" alt="icon" class="icon-space">
     </td>
-    <td>{{ $users -> username }}</td>
+    <td>{{ $user -> username }}</td>
     <td>
       @if(Auth::user()->isFollowing($users->id))
       <form action="{{ route('unfollow', $users->id) }}" method="POST">
