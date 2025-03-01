@@ -61,11 +61,6 @@ class User extends Authenticatable
         // 上記メソッドとそろえる
         return $this->following()->attach($user_id);
 
-        // すでにフォローしているかチェック
-    //  if (!$this->isFollowing($user_id)) {
-    //     $this->following()->attach($user_id);
-    //  }
-
     }
 
     // フォロー解除する
@@ -73,9 +68,6 @@ class User extends Authenticatable
     {
         return $this->following()->detach($user_id);
 
-    //     if ($this->isFollowing($user_id)) {
-    //     $this->following()->detach($user_id);
-    // }
 
     }
 
@@ -84,7 +76,6 @@ class User extends Authenticatable
     {
         return $this->following()->where('followed_id', $user_id)->first();
 
-        // return $this->following()->where('followed_id', $user_id)->where('status', 1)->exists();
     }
 
     // フォローされているか
