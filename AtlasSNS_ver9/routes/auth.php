@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\FollowsController;
 
 // ログアウト中のページ
 
@@ -47,8 +48,8 @@ Route::get('users/profile', [ProfileController::class, 'profile'])->name('profil
 Route::post('users/profile', [ProfileController::class, 'updateProfile'])->name('profile.update');
 
 // // ユーザー検索ページへ
-Route::get('/search', [UsersController::class, 'search'])->name('search');
-Route::post('/search', [UsersController::class, 'search']);
+Route::get('/search', [UsersController::class, 'index'])->name('search');
+Route::post('/search', [UsersController::class, 'index']);
 
 
 
@@ -57,8 +58,11 @@ Route::post('/search', [UsersController::class, 'search']);
 
 
 // フォロー・フォロワー
-Route::post('/users/{user}/follow', [FollowsController::class, 'follow'])->name('follow');
-Route::post('/users/{user}/unfollow', [FollowsController::class, 'unfollow'])->name('unfollow');
+// Route::post('/users/{user}/follow', [FollowsController::class, 'follow'])->name('follow');
+// Route::post('/users/{user}/unfollow', [FollowsController::class, 'unfollow'])->name('unfollow');
+Route::post('/follow/{user}', [FollowsController::class, 'follow'])->name('follow');
+Route::delete('/unfollow/{user}', [FollowsController::class, 'unfollow'])->name('unfollow');
+
 
 //     // ログアウト
 Route::get('/logout', [AuthenticatedSessionController::class, 'logout']);

@@ -14,17 +14,18 @@
 <div>
   <tr>
     <td>
-      <img src="storage/{{ $users -> images }}" alt="icon" class="icon-space">
+      <img src="storage/{{ $user -> images }}" alt="icon" class="icon-space">
     </td>
     <td>{{ $user -> username }}</td>
     <td>
-      @if(Auth::user()->isFollowing($users->id))
-      <form action="{{ route('unfollow', $users->id) }}" method="POST">
+      @if(Auth::user()->isFollowing($user->id))
+      <form action="{{ route('unfollow', $user->id) }}" method="POST">
         @csrf
+        @method('DELETE')
         <button type="submit" class="btn btn-danger">フォロー解除</button>
       </form>
       @else
-      <form action="{{ route('follow',$users->id) }}" method="POST">
+      <form action="{{ route('follow', $user->id) }}" method="POST">
         @csrf
         <button type="submit" class="btn btn-primary">フォローする</button>
       </form>

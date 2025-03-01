@@ -56,27 +56,40 @@ class User extends Authenticatable
     }
 
     // フォローする
-    public function follow(Int $user_id)
+    public function follow($user_id)
     {
         // 上記メソッドとそろえる
         return $this->following()->attach($user_id);
+
+        // すでにフォローしているかチェック
+    //  if (!$this->isFollowing($user_id)) {
+    //     $this->following()->attach($user_id);
+    //  }
+
     }
 
     // フォロー解除する
     public function unfollow($user_id)
     {
         return $this->following()->detach($user_id);
+
+    //     if ($this->isFollowing($user_id)) {
+    //     $this->following()->detach($user_id);
+    // }
+
     }
 
     // フォローしているか
     public function isFollowing($user_id)
     {
-        return(boolean) $this->following()->where('followed_id', $user_id)->first();
+        return $this->following()->where('followed_id', $user_id)->first();
+
+        // return $this->following()->where('followed_id', $user_id)->where('status', 1)->exists();
     }
 
     // フォローされているか
     public function isFollowed($user_id)
     {
-        return(boolean) $this->followed()->where('following_id', $user_id)->first();
+        return $this->followed()->where('following_id', $user_id)->first();
     }
 }
