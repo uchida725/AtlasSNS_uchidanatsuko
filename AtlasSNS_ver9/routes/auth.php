@@ -53,13 +53,11 @@ Route::post('/search', [UsersController::class, 'index']);
 
 
 
-//     Route::post('/follow-list', [PostsController::class, 'followList']);
+// Route::post('/follow-list', [PostsController::class, 'followList']);
 //     Route::post('/follower-list', [PostsController::class, 'followerList']);
 
 
 // フォロー・フォロワー
-// Route::post('/users/{user}/follow', [FollowsController::class, 'follow'])->name('follow');
-// Route::post('/users/{user}/unfollow', [FollowsController::class, 'unfollow'])->name('unfollow');
 Route::post('/follow/{user}', [FollowsController::class, 'follow'])->name('follow');
 Route::delete('/unfollow/{user}', [FollowsController::class, 'unfollow'])->name('unfollow');
 
@@ -67,7 +65,12 @@ Route::delete('/unfollow/{user}', [FollowsController::class, 'unfollow'])->name(
 //     // ログアウト
 Route::get('/logout', [AuthenticatedSessionController::class, 'logout']);
 
-// フォロー、フォロワーページへ
-// Route::get('/follow-list', [FollowsController::class, 'followList'])->name('follow.list');
+// フォローページへ
+Route::get('/follow-list', [FollowsController::class, 'followList'])->name('follow.list');
+Route::post('/follow-list', [FollowsController::class, 'followList'])->name('follow.list');
+
+
+
+// フォロワーーページへ
 //     Route::get('/follower-list', [FollowsController::class, 'followerList']);
  });
