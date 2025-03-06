@@ -23,7 +23,16 @@ class UsersController extends Controller
     {
         $users = User::get();
         $searchWord = $request -> input('searchWord');
-        return view('users.search',['users' => $users, 'searchWord' => $searchWord]);
+        $query = User::query();
+
+
+        if(!empty($searchWord)) {
+            $query->where('username', 'LIKE', "%{$searchWord}%");
+        }
+
+        $users = $query->get();
+
+        return view('users.search', compact('users', 'searchWord'));
 
     }
 }
