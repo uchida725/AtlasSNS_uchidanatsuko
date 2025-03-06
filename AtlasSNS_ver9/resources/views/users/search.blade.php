@@ -11,10 +11,12 @@
 {!! Form::close() !!}
 
 @foreach ($users as $user)
+<!-- ↓自分以外のユーザーだけ表示させるif文。foreachと同じように<div>の外で記入した -->
+@if ($user->id !== Auth::user()->id)
 <div>
   <tr>
     <td>
-      <img src="storage/{{ $user -> images }}" alt="icon" class="icon-space">
+       <img src="{{ asset('storage/' . $user->icon_image) }}" alt="icon" class="icon-space">
     </td>
     <td>{{ $user -> username }}</td>
     <td>
@@ -33,5 +35,6 @@
     </td>
   </tr>
 </div>
+@endif
 @endforeach
 </x-login-layout>
