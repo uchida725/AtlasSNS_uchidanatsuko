@@ -66,8 +66,7 @@ Route::delete('/unfollow/{user}', [FollowsController::class, 'unfollow'])->name(
 Route::get('/logout', [AuthenticatedSessionController::class, 'logout']);
 
 // フォローページへ
-// Route::get('/follow-list', [FollowsController::class, 'followList'])->name('follow.list');
-// Route::post('/follow-list', [FollowsController::class, 'followList'])->name('follow.list');
+Route::get('/follow-list', [FollowsController::class, 'followList']);
 Route::post('/follow-list', [FollowsController::class, 'followList']);
 
 
