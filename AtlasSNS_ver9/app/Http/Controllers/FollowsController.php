@@ -11,8 +11,8 @@ class FollowsController extends Controller
 {
 
     public function followList(){
-        $users = User::get();
-        $followList = $request -> input('followList');
+        // $users = User::get();
+        // $followList = $request -> input('followList');
         return view('follows.followList');
     }
 

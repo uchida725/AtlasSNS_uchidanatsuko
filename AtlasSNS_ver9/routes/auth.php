@@ -27,50 +27,50 @@ Route::middleware('guest')->group(function () {
 
 // ログイン中のページ
 
-Route::group(['middleware' => 'auth'], function () {
+// Route::group(['middleware' => 'auth'], function () {
 
-    // トップページへ
-// Route::get('/top', [PostsController::class, 'index']);//取得するため
-// Route::post('/top', [PostsController::class, 'index']);//指定のルートへ
+//     // トップページへ
+// // Route::get('/top', [PostsController::class, 'index']);//取得するため
+// // Route::post('/top', [PostsController::class, 'index']);//指定のルートへ
 
-//投稿機能画面
-Route::get('post/create', [PostsController::class, 'index']);
-Route::post('post/create', [PostsController::class, 'postCreate']);
-// 投稿更新
-Route::post('/post/update', [PostsController::class, 'postUpdate']);
-// 削除
-Route::get('/post/{id}/delete', [PostsController::class, 'delete']);
-
-
-// プロフィール画面の表示
-Route::get('users/profile', [ProfileController::class, 'profile'])->name('profile');
-// プロフィールを更新させる
-Route::post('users/profile', [ProfileController::class, 'updateProfile'])->name('profile.update');
-
-// // ユーザー検索ページへ
-Route::get('/search', [UsersController::class, 'index'])->name('search');
-Route::post('/search', [UsersController::class, 'index']);
+// //投稿機能画面
+// Route::get('post/create', [PostsController::class, 'index']);
+// Route::post('post/create', [PostsController::class, 'postCreate']);
+// // 投稿更新
+// Route::post('/post/update', [PostsController::class, 'postUpdate']);
+// // 削除
+// Route::get('/post/{id}/delete', [PostsController::class, 'delete']);
 
 
+// // プロフィール画面の表示
+// Route::get('users/profile', [ProfileController::class, 'profile'])->name('profile');
+// // プロフィールを更新させる
+// Route::post('users/profile', [ProfileController::class, 'updateProfile'])->name('profile.update');
 
-// Route::post('/follow-list', [PostsController::class, 'followList']);
-//     Route::post('/follower-list', [PostsController::class, 'followerList']);
-
-
-// フォロー・フォロワー
-Route::post('/follow/{user}', [FollowsController::class, 'follow'])->name('follow');
-Route::delete('/unfollow/{user}', [FollowsController::class, 'unfollow'])->name('unfollow');
-
-
-//     // ログアウト
-Route::get('/logout', [AuthenticatedSessionController::class, 'logout']);
-
-// フォローページへ
-Route::get('/follow-list', [FollowsController::class, 'followList']);
-Route::post('/follow-list', [FollowsController::class, 'followList']);
+// // // ユーザー検索ページへ
+// Route::get('/search', [UsersController::class, 'index'])->name('search');
+// Route::post('/search', [UsersController::class, 'index']);
 
 
 
-// フォロワーーページへ
-//     Route::get('/follower-list', [FollowsController::class, 'followerList']);
- });
+// // Route::post('/follow-list', [PostsController::class, 'followList']);
+// //     Route::post('/follower-list', [PostsController::class, 'followerList']);
+
+
+// // フォロー・フォロワー
+// Route::post('/follow/{user}', [FollowsController::class, 'follow'])->name('follow');
+// Route::delete('/unfollow/{user}', [FollowsController::class, 'unfollow'])->name('unfollow');
+
+
+// //     // ログアウト
+// Route::get('/logout', [AuthenticatedSessionController::class, 'logout']);
+
+// // フォローページへ
+// Route::get('/follow-list', [FollowsController::class, 'followList']);
+// Route::post('/follow-list', [FollowsController::class, 'followList']);
+
+
+
+// // フォロワーーページへ
+// //     Route::get('/follower-list', [FollowsController::class, 'followerList']);
+//  });
