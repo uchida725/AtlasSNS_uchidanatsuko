@@ -5,20 +5,43 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Follow;
+use App\Models\Post;
+
 use Illuminate\Support\Facades\Auth;
 
 class FollowsController extends Controller
 {
 
-    public function followList(){
-        // $users = User::get();
-        // $followList = $request -> input('followList');
-        return view('follows.followList');
+    //follow.bladeのアイコンリスト、投稿リストの表示
+    public function followList(Post $post, User $user, Follow $follower){
+
+        // $follows = auth()->user()->follows()->get();//フォロワー取得
+        // $user = auth()->user();//認証ユーザー取得
+        // $follow_ids = $follower->followingIds($user->id);
+        // $following_ids = $follow_ids->pluck('followed_id')->toArray();
+        // $posts = Post::whereIn('user_id', $following_ids)->orderBy('created_at','desc')->get();
+
+        // //画像アイコン
+        // $images = DB::table('users')->get();
+        // $images =auth()->user()->followed()->get();
+
+        // return view('follows.followList', compact('posts'))->with(['images'=>$images]);
+
+
+        $following_id = Auth::user()->followed()->pluck('followed_id');//フォローしているユーザーのidを取得
+        $following_users = User::orderBy('created_at', 'desc')->whereIn('id', $following_id)->get(); //userテーブルuser_idとフォローしているユーザーidが一致している投稿を取得
+        $posts = Post::orderBy('created_at', 'desc')->with('user')->whereIn('user_id', $following_id)->get(); //Postテーブルuser_idとふぉろーしているユーザーidが一致している投稿を取得
+        return view('follows.followList', compact('following_users', 'posts'));
     }
 
 
     public function followerList(){
-        return view('follows.followerList');
+
+        $followed_id = Auth::user()->following()->pluck('following_id');//フォローしているユーザーのidを取得
+        $followed_users = User::orderBy('created_at', 'desc')->whereIn('id', $followed_id)->get(); //userテーブルuser_idとフォローしているユーザーidが一致している投稿を取得
+        $posts = Post::orderBy('created_at', 'desc')->with('user')->whereIn('user_id', $followed_id)->get(); //Postテーブルuser_idとふぉろーしているユーザーidが一致している投稿を取得
+        return view('follows.followerList', compact('followed_users', 'posts'));
+
     }
 
 

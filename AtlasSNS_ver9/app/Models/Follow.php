@@ -12,4 +12,11 @@ class Follow extends Model
 
     // 中間テーブルでフォロー機能
     protected $fillable =['user_id', 'follower_id'];
+
+
+    //フォローリスト
+    public function followingIds($user_id)
+    {
+        return $this->where('following_id', $user_id)->get();
+    }
 }

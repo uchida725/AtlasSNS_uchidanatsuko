@@ -83,4 +83,10 @@ class User extends Authenticatable
     {
         return $this->following()->where('following_id', $user_id)->first();
     }
+
+    //フォローリスト
+    public function getTimeLines($user_id)
+    {
+        return $this->where('user_id', $user_id)->orderBy('created_at','DESC');
+    }
 }

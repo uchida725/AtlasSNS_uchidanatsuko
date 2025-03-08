@@ -19,4 +19,10 @@ class Post extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    //フォローリスト
+    public function getTimeLines($user_id)
+    {
+        return $this->where('user_id','<>', $user_id)->orderBy('created_at', 'DESC')->paginate();
+    }
 }

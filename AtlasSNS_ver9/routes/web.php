@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\FollowsController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -60,7 +61,7 @@ Route::post('/search', [UsersController::class, 'index']);
 
 
 
-// Route::post('/follow-list', [PostsController::class, 'followList']);
+Route::post('/follow-list', [PostsController::class, 'followList']);
 //     Route::post('/follower-list', [PostsController::class, 'followerList']);
 
 
@@ -69,7 +70,7 @@ Route::post('/follow/{user}', [FollowsController::class, 'follow'])->name('follo
 Route::delete('/unfollow/{user}', [FollowsController::class, 'unfollow'])->name('unfollow');
 
 
-//     // ログアウト
+// ログアウト
 Route::get('/logout', [AuthenticatedSessionController::class, 'logout']);
 
 // フォローページへ
@@ -78,4 +79,5 @@ Route::post('/follow-list', [FollowsController::class, 'followList']);
 
 // フォロワーーページへ
 Route::get('/follower-list', [FollowsController::class, 'followerList']);
+Route::post('/follower-list', [FollowsController::class, 'followerList']);
  });
