@@ -55,6 +55,11 @@ Route::get('users/profile', [ProfileController::class, 'profile'])->name('profil
 // プロフィールを更新させる
 Route::post('users/profile', [ProfileController::class, 'updateProfile'])->name('profile.update');
 
+//他ユーザーのプロフィール画面へ
+Route::get('users/profile/{id}', [UsersController::class, 'show'])->name('profile.show');
+Route::delete('users/profile/{id}', [UsersController::class,'unfollow']);
+
+
 // // ユーザー検索ページへ
 Route::get('/search', [UsersController::class, 'index'])->name('search');
 Route::post('/search', [UsersController::class, 'index']);

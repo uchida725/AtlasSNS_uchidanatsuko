@@ -41,7 +41,7 @@
         <p>{{Auth::user()->username}}さんの</p>
         <div>
           <p>フォロー数</p>
-          <p>〇〇名</p>
+          <p>名</p>
         </div>
         <p class="btn"><a href="/follow-list">フォローリスト</a></p>
         <div>

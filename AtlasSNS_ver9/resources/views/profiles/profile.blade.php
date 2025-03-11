@@ -2,7 +2,7 @@
 <div class="container">
   <div class="update">
     <!-- {!! Form::open(['url' => route('profile.update'),'method' =>'post','enctype' =>'multipart/form-data']) !!} -->
-     {!! Form::open(['url' => 'users/profile', "enctype" => "multipart/form-data"]) !!}
+     {!! Form::open(['url' => '/profile', "enctype" => "multipart/form-data"]) !!}
      <!-- ↑保護しながらフォームタグの作成。送信先のURLの設定。<form action="/profile" method="post">の略。 -->
      <!-- "enctype" => "multipart/form-data"はファイルアップロードを可能にするための設定。 -->
       <!-- 💡なぜ multipart/form-data が必要？ -->

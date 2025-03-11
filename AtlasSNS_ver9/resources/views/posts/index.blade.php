@@ -1,6 +1,6 @@
 <x-login-layout>
 <div class="container">
-<!-- <p class="page-header"><img src="images/icon1.png"width="50"height="50"></p> -->
+
 {!! Form::open(['url' => '/post/create']) !!}
 <!-- ↓バリデーションのエラーメッセージ -->
 @if ($errors->any())

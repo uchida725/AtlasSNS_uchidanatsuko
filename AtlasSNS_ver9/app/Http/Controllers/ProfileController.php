@@ -96,5 +96,6 @@ if ($request->hasFile('icon_image')) {
 
     // 🔹 更新が終わったら、元のページに戻ってメッセージを表示！
     return redirect()->back()->with('success', 'プロフィールを更新しました！');
+
 }
 }
