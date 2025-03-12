@@ -22,9 +22,9 @@ use Illuminate\Support\Facades\Route;
 
 require __DIR__ . '/auth.php';
 
-Route::get('top', [PostsController::class, 'index']);
+// Route::get('top', [PostsController::class, 'index']);
 
-Route::get('profile', [ProfileController::class, 'profile']);
+// Route::get('profile', [ProfileController::class, 'profile']);
 
 // Route::get('search', [UsersController::class, 'index']);
 
@@ -49,6 +49,10 @@ Route::post('/post/update', [PostsController::class, 'postUpdate']);
 // 削除
 Route::get('/post/{id}/delete', [PostsController::class, 'delete']);
 
+
+Route::get('top', [PostsController::class, 'index']);
+
+Route::get('profile', [ProfileController::class, 'profile']);
 
 // プロフィール画面の表示
 Route::get('users/profile', [ProfileController::class, 'profile'])->name('profile');

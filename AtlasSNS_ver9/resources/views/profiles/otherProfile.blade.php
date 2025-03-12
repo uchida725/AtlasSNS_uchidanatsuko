@@ -1,7 +1,7 @@
 <x-login-layout>
 
- {!! Form::open(['url' => 'users/profile']) !!}
- @csrf
+ <!-- {!! Form::open(['url' => 'users/profile']) !!}
+ @csrf -->
 <h2>ユーザープロフィール</h2>
 
 <div class="container">
