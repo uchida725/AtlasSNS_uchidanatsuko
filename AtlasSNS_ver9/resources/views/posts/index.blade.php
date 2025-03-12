@@ -32,6 +32,8 @@
   <div class="post-user">
     <div>{{$list->post}}</div>
 </div>
+<!-- 自分の投稿のみ編集・削除ができるようにif文で設定 -->
+@if ($user_id == $list->user_id)
    <div>
     <div class="contents">
     <!-- 編集用 -->
@@ -45,6 +47,7 @@
   </a>
    </div>
   </div>
+  @endif
 </div>
   </div>
 @endforeach
