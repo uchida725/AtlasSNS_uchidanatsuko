@@ -89,4 +89,7 @@ Route::post('/follow-list', [FollowsController::class, 'followList']);
 // フォロワーーページへ
 Route::get('/follower-list', [FollowsController::class, 'followerList']);
 Route::post('/follower-list', [FollowsController::class, 'followerList']);
+
+Route::get('/show', [FollowsController::class, 'show']);
+
  });
