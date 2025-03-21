@@ -38,14 +38,21 @@ header {
 .nav-open {
     display: flex;
     position: relative;
-    margin-left: 900px;
+    margin-left: 1000px;
     float: right;
     outline: 0;
     border-top: none;
+    justify-content: space-around;
 }
 
 .nav-open a {
     transition: 0.3s;
+}
+
+/* ヘッダーのログインネーム */
+.header-name {
+    color: #fff;
+    font-size: 19px;
 }
 
 .menu-btn {
@@ -99,6 +106,12 @@ header {
     white-space: nowrap;
     text-align: center;
     background-color: #fff;
+    width: 120%;
+}
+
+/* ヘッダーアイコン */
+.header-icon {
+    text-align: right;
 }
 
 
@@ -247,18 +260,36 @@ header {
 /* 投稿したアイコンとユーザー名 */
 .icon-name {
     display: flex;
+    margin-left: 150px;
 }
 
 /* 更新と削除ボタンの配置 */
 .contents {
     text-align: right;
-    margin-right: 50px;
+    margin: 0 65px 5px 0;
 }
 
 /* 投稿した時間の配置 */
 .up-time {
     text-align: right;
+    margin: 10px 20px 0 0;
 }
+
+/* 投稿したユーザー名配置 */
+.post-username {
+    padding: 10px;
+}
+
+/* 投稿したコメント配置位置 */
+.post-comment {
+    margin-left: 50%;
+}
+
+.post-user {
+    margin-left: 210px;
+    margin-bottom: 20px;
+}
+
 
 /* サイドバー全体のデザイン */
 .sidebar {

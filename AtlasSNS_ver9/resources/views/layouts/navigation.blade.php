@@ -7,16 +7,16 @@
                 <div id=""> -->
                 <!-- </div> -->
                 <div class="nav-open">
-                        <p>{{Auth::user()->username}}さん</p>
+                        <p class="header-name">{{Auth::user()->username}}さん</p>
                         <div class="menu-btn"></div>
-                        <nav>
+    <nav>
                 <ul class="tag">
                     <li><a href="/top">HOME</a></li>
                     <li><a href="/profile">プロフィール編集</a></li>
                     <li><a href="/logout">ログアウト</a></li>
                 </ul>
     </nav>
-    <div class="icon"><img src="{{ asset('storage/' . Auth::user()->icon_image) }}"></div>
+    <div class="header-icon"><img src="{{ asset('storage/' . Auth::user()->icon_image) }}"></div>
                     </div>
                 </div>
             </div>
