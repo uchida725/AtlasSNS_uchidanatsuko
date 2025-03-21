@@ -2,7 +2,7 @@
     <script src="{{ asset('js/script.js') }}"></script>
 
             <!-- ↓↓アトラスロゴにヘッダーへ戻るリンクを設定 -->
-            <h1><a href="/top"><img src="images/atlas.png" alt="Atlas"></a></h1>
+            <div class="logo"><h2><a href="/top"><img src="images/atlas.png" alt="Atlas"></a></h2></div>
             <!-- <div id="">
                 <div id=""> -->
                 <!-- </div> -->

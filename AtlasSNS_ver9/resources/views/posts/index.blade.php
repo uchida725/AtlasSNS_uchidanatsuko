@@ -16,8 +16,8 @@
 <div class="form-group">
   <p class="page-header"><img src="{{ asset('storage/' . Auth::user()->icon_image) }}"width="50"height="50"></p>
   {{ Form::input('text', 'newPost', null, ['required', 'class' => 'form-control', 'placeholder' => '投稿内容を入力してください。']) }}
+  <button type="submit" class="btn btn-success pull-right"><img src="images/post.png"width="40"height="40" alt="送信"></button>
 </div>
-<button type="submit" class="btn btn-success pull-right"><img src="images/post.png"width="50"height="50" alt="送信"></button>
 {!! Form::close() !!}
 </div>
 <div>
@@ -26,7 +26,7 @@
   <div class="left-list">
     <div class="up-time">{{$list->created_at}}</div>
     <div class="icon-name">
-      <img class="form-icon" src="{{ asset('storage/' . $list->user->icon_image) }}" width="35" height="35">
+      <img class="form-icon" src="{{ asset('storage/' . $list->user->icon_image) }}" width="50" height="50">
     <div class="post-username">{{ $list->user->username }}</div>
   </div>
   <div class="post-user">

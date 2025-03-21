@@ -2,7 +2,9 @@
 
 html {}
 
-body {}
+body {
+    background: #fff;
+}
 
 /* header */
 header {
@@ -11,12 +13,20 @@ header {
 
 #head {
     display: flex;
+    padding: 10px;
 }
 
 #head {
     align-items: center;
     position: relative;
 }
+
+/* アトラスロゴ */
+.logo {
+    margin-left: 20px;
+    width: 80px;
+}
+
 
 /*アコーディオンメニュー*/
 
@@ -104,8 +114,9 @@ header {
 /* 左側 (投稿エリア) */
 #container {
     background-color: #fff;
-    padding-left: 30px;
-    margin-left: 10px;
+    /* padding-left: 30px; */
+    /* margin-left: 10px; */
+    width: 80%;
 }
 
 
@@ -114,6 +125,7 @@ header {
     border-left: 1px solid #727272;
     background-color: #fff;
     padding: 20px;
+    width: 20%;
 }
 
 #head img {
@@ -171,24 +183,6 @@ header {
 }
 
 
-/* .update_btn img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    width: 40px;
-    height: auto;
-    -webkit-transition: .4s ease-in-out;
-    transition: .4s ease-in-out;
-} */
-
-/* ホバーしたら反転 */
-/* .update_btn:hover img:nth-of-type(2) {
-    opacity: 0;
-} */
-
-
 /* 削除ボタンのタグ */
 
 .delete_btn {
@@ -214,6 +208,7 @@ header {
 .form-group {
     display: flex;
     margin-bottom: none;
+    margin-left: 70px;
 }
 
 /* フォーム部分 */
@@ -222,17 +217,16 @@ header {
     height: 36px;
     padding: 30px;
     background-color: #fff;
-    margin-top: 40px;
-    margin-left: 40px;
+    margin-top: 20px;
+    margin-left: 5px;
     margin-bottom: 0px;
     border: none;
     box-shadow: none;
 }
 
-/* 投稿エリア部分 */
+/* 投稿エリア部分のアイコン */
 .page-header {
-    padding-bottom: 10px;
-    margin: 44px 0 22px;
+    margin-top: 20px;
     border-bottom: none;
 }
 
@@ -241,7 +235,8 @@ header {
     color: #fff;
     background-color: #fff;
     border-color: #fff;
-    margin-right: 40%;
+    margin-top: 60px;
+    margin-left: 200px;
 }
 
 /* どこかよくわかんないが下のボーダーライン */
@@ -262,5 +257,92 @@ header {
 
 /* 投稿した時間の配置 */
 .up-time {
+    text-align: right;
+}
+
+/* サイドバー全体のデザイン */
+.sidebar {
+    width: 100%;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* ユーザー名のデザイン */
+.sidebar h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* フォロー数とフォロワー数のテキスト */
+.follow-info {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+/* ボタンのデザイン（フォローリスト・フォロワーリスト・ユーザー検索） */
+/* 共通ボタンスタイル */
+
+.side-btn-primary {
+    color: #FFFFFF !important;
+    /* 文字を完全な白に */
+    text-decoration: none;
+    /* 下線をなくす */
+    background-color: #186AC9;
+    border-color: #186AC9;
+    display: inline-block;
+    /* margin-bottom: 0; */
+    text-align: center;
+    padding: 6px 15px;
+    font-size: 14px;
+    line-height: 1.6;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* aタグのスタイルが影響している場合の対策 */
+.side-btn-primary a {
+    color: #FFFFFF !important;
+    /* リンクの文字色も白に強制 */
+    text-decoration: none;
+    /* 下線をなくす */
+    display: block;
+    /* aタグ全体をボタンにする */
+}
+
+
+/* 「フォロワー数」と「フォロー数」の間の余白 */
+.follow-section {
+    margin-bottom: 20px;
+}
+
+/* ユーザー検索ボタンの親要素 */
+.search-container {
+    display: flex;
+    justify-content: center;
+    /* 水平方向の中央揃え */
+    align-items: center;
+    /* 垂直方向の中央揃え（必要なら） */
+    margin-top: 20px;
+    /* 上に適度な余白を追加 */
+    width: 100%;
+    border-top: 2px solid #e0e0e0;
+}
+
+/* ユーザー検索ボタンの上の区切り線 */
+.search-button {
+    margin-top: 20px;
+}
+
+/* フォロー・フォロワーリストボタンの配置位置 */
+.follow-side-btn {
     text-align: right;
 }

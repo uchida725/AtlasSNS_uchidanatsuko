@@ -1,10 +1,75 @@
 @charset "UTF-8";
 
-html{
+/* ログイン画面レイアウト */
+
+html {
     height: 100%;
 }
 
-body{
+.login-header {
+    display: block;
+}
+
+body {
     height: 100%;
-    background: #186AC9;
+    /* background: #186AC9; */
+    background: linear-gradient(to bottom, #42a5f5 30%, #FDD835);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-container {
+    text-align: center;
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.title span {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.welcome {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-button {
+    background: #E53935;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.register-link {
+    margin-top: 10px;
 }
