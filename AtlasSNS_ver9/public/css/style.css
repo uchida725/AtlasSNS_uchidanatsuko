@@ -377,3 +377,92 @@ header {
 .follow-side-btn {
     text-align: right;
 }
+
+
+
+
+
+
+/* ーーーフォロー・フォロワーリストレイアウトーーー */
+
+
+
+
+/* フォロー・フォロワーリストアイコン部分とテキスト */
+.follow-container {
+    margin: 5px 0 50px 10%;
+    display: flex;
+}
+
+.follow-text {
+    font-size: 25px;
+    margin: 8px 20px 0 0;
+}
+
+.under-line {
+    border-bottom: 6px solid #e0e0e0;
+}
+
+
+
+
+
+/* ーーーユーザー検索レイアウトーーー */
+
+
+
+
+/* 検索一覧 */
+.search-list {
+    display: flex;
+    border-top: none;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px;
+
+}
+
+/* アイコン */
+.icon-space {
+    display: block;
+    margin-left: 25%;
+}
+
+/* 検索リストのユーザー名 */
+.search-name {
+    margin-top: 20px;
+    margin-left: -600px;
+    font-size: 18px;
+    text-align: left;
+}
+
+/* 検索リストのフォローボタン */
+.search-follow-button {
+    margin-left: -400px;
+    margin-right: 300px;
+    margin-top: 10px;
+}
+
+
+
+/* ーーープロフィール編集ページレイアウトーーー */
+
+/* アイコンサイドとフォームサイドのレイアウト */
+.profile-content {
+    display: flex;
+}
+
+/* アイコン側 */
+.profile-left {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+/* フォーム側 */
+.update-form {
+    width: 50%;
+    background: white;
+    padding: 20px;
+}

@@ -25,10 +25,10 @@
     <body>
         <header>
             <div class="login-header">
-                <div>
-                    <img src="images/atlas.png">
+                <div class="top-logo">
+                    <img src="images/atlas.png"width="150" height="60">
                 </div>
-                <p>Social Network Service</p>
+                <p class="top-title">Social Network Service</p>
             </div>
         </header>
         <div id="container">
