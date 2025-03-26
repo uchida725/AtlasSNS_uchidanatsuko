@@ -1,17 +1,20 @@
 <x-login-layout>
-<div class="follow-container">
-{!! Form::open(['url' => '/search', 'class' => 'post-form']) !!}
+<div class="search-box">
+  <div class="search-form">
+    {!! Form::open(['url' => '/search', 'class' => 'post-form']) !!}
 {{ Form::input('text', 'searchWord', null, ['required', 'class' => 'search', 'placeholder' => 'ユーザー名']) }}
-<button type="submit">
-  <img src="images/search.png" width="40" height="40"></button>
-@if(!empty($searchWord))
-
-<div class="search-word">
-  検索ワード:{{ $searchWord }}
+{!! Form::close() !!}
+  </div>
+<div class="search-btn">
+  <button type="submit" class="search-btn">
+  <img src="images/search.png" width="50" height="50"></button>
 </div>
 
+@if(!empty($searchWord))
+<div class="search-word">
+  検索ワード：{{ $searchWord }}
+</div>
 @endif
-{!! Form::close() !!}
 </div>
 <div class="under-line"></div>
 

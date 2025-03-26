@@ -1,9 +1,6 @@
 <x-login-layout>
 
-
-<h2>ユーザープロフィール</h2>
-
-<div class="container">
+<div class="others-container">
 
     <section class="follow-posts">
         <div class="profile">
@@ -11,12 +8,19 @@
                     <img src="{{ asset('storage/' . $data->icon_image) }}" alt="icon" alt="" width="50" height="50" class="list-icon">
             </div>
             <div class="usersProfile">
-                <p class="profileName">ユーザー名：{{$data->username}}</p>
-                <p class="profileBio">自己紹介：{{$data->bio}}</p>
+                <div></div>
+                <p class="profileName">ユーザー名</p>
+                <p class="profileBio">自己紹介</p>
+            </div>
+            <div class="profile-up">
+                <p>{{$data->username}}</p>
+                <p>{{$data->bio}}</p>
             </div>
 
+
 {{-- フォローボタンの実装 --}}
-        @if(Auth::user()->isFollowing($data->id))
+<div class="other-follow-btn">
+    @if(Auth::user()->isFollowing($data->id))
 
         <form action="{{ route('unfollow', $data->id) }}" method="POST">
             @csrf
@@ -29,21 +33,30 @@
             <button type="submit" class="btn btn-primary">フォローする</button>
         </form>
         @endif
+</div>
 
+</div>
         </div>
-        <div class="bold-line"></div>
-        <div class="post-list">
-            <div class="list-images">
-                    <img src="{{ asset( 'storage/' . $data->icon_image)}}" alt="" width="50" height="50" class="list-icon">
+        <div class="under-line"></div>
+
+        @foreach ($dataPost as $dataPost)
+        @csrf
+        <div class="left-list">
+            <div class="up-time">
+                {{$dataPost->created_at}}
             </div>
-            @foreach ($dataPost as $dataPost)
-                <div class="posts">
-                    <p>{{$dataPost->user->username}}</p>
-                    <p>{{$dataPost->post}}</p>
-                    <p>{{$dataPost->updated_at}}</p>
+            <div class="icon-name">
+                    <img src="{{ asset( 'storage/' . $data->icon_image)}}" alt="" width="50" height="50" class="list-icon">
+                <div class="post-username">
+                {{$dataPost->user->username}}
+                </div>
+            </div>
+
+                <div class="post-user">
+                    {{$dataPost->post}}
                 </div>
             @endforeach
         </div>
     </section>
- </div>
+
 </x-login-layout>
