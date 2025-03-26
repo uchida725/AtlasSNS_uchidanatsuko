@@ -2,7 +2,7 @@
 
 <div class="others-container">
 
-    <section class="follow-posts">
+    <div class="follow-posts">
         <div class="profile">
             <div class="list-images">
                     <img src="{{ asset('storage/' . $data->icon_image) }}" alt="icon" alt="" width="50" height="50" class="list-icon">
@@ -36,7 +36,9 @@
 </div>
 
 </div>
-        </div>
+</div>
+</div>
+
         <div class="under-line"></div>
 
         @foreach ($dataPost as $dataPost)
@@ -55,8 +57,9 @@
                 <div class="post-user">
                     {{$dataPost->post}}
                 </div>
+                </div>
             @endforeach
-        </div>
-    </section>
+
+
 
 </x-login-layout>
