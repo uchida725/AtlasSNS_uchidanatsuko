@@ -9,6 +9,7 @@ body {
 /* header */
 header {
     background: #186AC9;
+    padding: 1%;
 }
 
 #head {
@@ -23,8 +24,8 @@ header {
 
 /* アトラスロゴ */
 .logo {
-    margin-left: 20px;
-    width: 80px;
+    margin-left: 1%;
+    /* width: 80%; */
 }
 
 
@@ -38,27 +39,29 @@ header {
 .nav-open {
     display: flex;
     position: relative;
-    margin-left: 1000px;
-    float: right;
-    outline: 0;
+    margin-left: 70%;
+    /* float: right; */
+    /* outline: 0; */
     border-top: none;
     justify-content: space-around;
 }
 
 .nav-open a {
-    transition: 0.3s;
+    font-size: 18px;
 }
+
 
 /* ヘッダーのログインネーム */
 .header-name {
     color: #fff;
     font-size: 19px;
+    margin-top: 2%;
 }
 
 .menu-btn {
     display: flex;
     font-size: 1.25rem;
-    padding-left: 10px;
+    padding-left: 10%;
     width: 50px;
     background-color: transparent;
     color: #fff;
@@ -66,20 +69,23 @@ header {
 }
 
 .menu-btn::after {
-    content: '<';
+    content: '＞';
     position: absolute;
     display: block;
     width: 8px;
     height: 8px;
-    right: 40px;
+    right: 50%;
     top: 3%;
     transform: rotate(-90deg);
     transform: translateY();
+    margin-top: 20%;
 }
 
 .nav-open ul a:hover {
     color: #fff;
     background-color: #186AC9;
+    display: block;
+    text-align: center;
 }
 
 .menu-btn.open::after {
@@ -89,10 +95,10 @@ header {
 
 .tag {
     position: absolute;
-    top: 75px;
-    width: 100%;
-    height: 50px;
-    left: 70px;
+    top: 150%;
+    width: 120%;
+    height: 65px;
+    left: 15%;
     border-color: darkblue;
     display: flex;
     background-color: #fff;
@@ -101,18 +107,39 @@ header {
 }
 
 .nav-open ul li {
-    padding: 20px;
+    /* padding: 20px; */
     border: 1px solid;
     white-space: nowrap;
     text-align: center;
     background-color: #fff;
     width: 120%;
+    height: 150%;
+}
+
+.nav-open a:hover {
+    padding: 20px;
+    border: 1px solid;
+    white-space: nowrap;
+    text-align: center;
+    /* background-color: #fff; */
+    background-color: #186AC9;
+    /* width: 150%; */
+    margin-top: -2%;
+}
+
+.am-tag {
+    margin-top: 10%;
 }
 
 /* ヘッダーアイコン */
 .header-icon {
     text-align: right;
+    margin-right: -10%;
 }
+
+
+
+
 
 
 /* main content */
@@ -147,7 +174,11 @@ header {
 }
 
 
-/* モーダル部分 */
+
+
+/* ーーーモーダル部分ーーー */
+
+
 
 /* 必要に応じて編集しご自身でSNS課題のレイアウトのようにカスタマイズしてください。 */
 .content {
@@ -177,8 +208,27 @@ header {
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 60%;
+    width: 55%;
+    height: 40%;
+    border-radius: 7px;
 }
+
+
+.modal_post {
+    width: 90%;
+    margin: 0 60% 0 5%;
+    font-size: 18px;
+    padding-bottom: 20%;
+}
+
+/* モーダル内更新ボタン */
+.update-btn {
+    text-align: center;
+    border: none;
+    background: none;
+}
+
+
 
 /* フォーム全体 */
 .container {
@@ -227,7 +277,7 @@ header {
 
 /* フォーム部分 */
 .form-control {
-    width: 50%;
+    width: 65%;
     height: 36px;
     padding: 30px;
     background-color: #fff;
@@ -244,14 +294,14 @@ header {
     border-bottom: none;
 }
 
+
 /* 送信紙飛行機ボタン */
-.btn-success {
-    color: #fff;
-    background-color: #fff;
-    border-color: #fff;
-    margin-top: 60px;
-    margin-left: 200px;
+.pull-right {
+    background: #fff;
+    margin: 5% 0 0 3%;
+
 }
+
 
 /* どこかよくわかんないが下のボーダーライン */
 .left-list {
@@ -476,7 +526,11 @@ header {
 
 
 
+
+
 /* ーーープロフィール編集ページレイアウトーーー */
+
+
 
 /* アイコンサイドとフォームサイドのレイアウト */
 .profile-content {
@@ -488,14 +542,67 @@ header {
     width: 20%;
     display: flex;
     justify-content: center;
-    margin: 20px;
+    margin: 4.5% -6% 0 5%;
 }
 
 /* フォーム側 */
 .update-form {
-    width: 50%;
-    background: white;
-    padding: 20px;
+    /* width: 50%; */
+    /* background: white; */
+    /* padding: 10%; */
+    margin: 5% 10% 10% 0;
+
+}
+
+.update-block {
+    margin: 0% 5% 5% 5%;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* 編集するタイトル */
+.up-title {
+    margin: 1% 5% 5% 0;
+    text-align: left;
+}
+
+
+.up-form {
+    align-items: flex-start;
+}
+
+
+/* フォーム部分 */
+.profile-form {
+    width: 200%;
+    padding: 3%;
+    margin: 0 60% 10% 5%;
+    font-size: 18px;
+
+}
+
+
+/* アイコンフォーム部分 */
+.icon-profile-form {
+    width: 120%;
+    padding: 3%;
+    margin: 0 60% 10% 55%;
+    font-size: 18px;
+}
+
+
+.update-button {
+    background: #E53935;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 30%;
+    margin-left: 60%;
+    font-size: 16px;
 }
 
 

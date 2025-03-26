@@ -11,47 +11,76 @@
 @endif
 <div class="profile-content">
   <div class="profile-left">
-  <img class="update-icon" src="{{ asset('storage/' . Auth::user()->icon_image) }}"width="50" height="50">
+  <img class="update-icon" src="{{ asset('storage/' . Auth::user()->icon_image) }}"width="50" height="50" class="up-icon">
 </div>
-
 <div class="update-form">
      <!--ユーザー名-->
     <div class="update-block">
-      <label for="name">ユーザー名</label>
-      <input type="text" name="username" value="{{Auth::user()->username}}">
+      <div class="up-title">
+        ユーザー名
+      </div>
+      <div class="up-form">
+        <input type="text" name="username" value="{{Auth::user()->username}}" class="profile-form">
+      </div>
     </div>
 
      <!--メールアドレス-->
     <div class="update-block">
-      <label for="mail">メールアドレス</label>
-       <input type="email" name="email" value="{{ old('email', Auth::user()->email) }}" required>
+      <div class="up-title">
+        メールアドレス
+      </div>
+       <div class="up-form">
+        <input type="email" name="email" value="{{ old('email', Auth::user()->email) }}" required class="profile-form">
+      </div>
     </div>
 
     <!--パスワード-->
     <div class="update-block">
-      <label for="pass">パスワード</label>
-      <input type="password" name="password" value="">
+      <div class="up-title">
+        パスワード
+      </div>
+      <div class="up-form">
+        <input type="password" name="password" value="" class="profile-form">
+      </div>
     </div>
 
     <!--パスワード確認用-->
     <div class="update-block">
-      <label for="name">パスワード確認</label>
-      <input type="password" name="password_confirmation" value="">
+      <div class="up-title">
+        パスワード確認
+      </div>
+      <div class="up-form">
+        <input type="password" name="password_confirmation" value="" class="profile-form">
+      </div>
     </div>
 
     <!--自己紹介文（任意）-->
     <div class="update-block">
-      <label for="bio">自己紹介</label>
-      <textarea name="bio">{{ Auth::user()->bio }}</textarea>
+      <div class="up-title">
+        自己紹介
+      </div>
+      <div class="up-form">
+        <textarea name="bio" class="profile-form">{{ Auth::user()->bio }}</textarea>
+      </div>
     </div>
 
     <!-- アイコン画像 -->
 <div class="update-block">
-     <label for="name">アイコン画像</label>
-    <input type="file" name="icon_image" accept="image/*">
-
-    <button type="submit">更新</button>
+     <div class="icon-up-title">
+      アイコン画像
+    </div>
+    <div class="up-form">
+      <input type="file" name="icon_image" accept="image/*" class="icon-profile-form">
+    </div>
 </div>
+
+<div>
+  <!-- <button type="submit">更新</button> -->
+   {{ Form::submit('更新', ['class' => 'update-button']) }}
+</div>
+
+
+
 
 @if ($errors->any())
     <div class="alert alert-danger">

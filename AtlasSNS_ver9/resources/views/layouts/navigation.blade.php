@@ -11,9 +11,9 @@
                         <div class="menu-btn"></div>
     <nav>
                 <ul class="tag">
-                    <li><a href="/top">HOME</a></li>
-                    <li><a href="/profile">プロフィール編集</a></li>
-                    <li><a href="/logout">ログアウト</a></li>
+                    <li><a href="/top"><p class="am-tag">HOME</p></a></li>
+                    <li><a href="/profile"><p class="am-tag">プロフィール編集</p></a></li>
+                    <li><a href="/logout"><p class="am-tag">ログアウト</p></a></li>
                 </ul>
     </nav>
     <div class="header-icon"><img src="{{ asset('storage/' . Auth::user()->icon_image) }}"></div>

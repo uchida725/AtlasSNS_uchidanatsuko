@@ -50,6 +50,17 @@ class PostsController extends Controller
     // 投稿の更新
     public function postUpdate(Request $request)
     {
+        // バリデーション
+        $message = [
+            'upPost.max' => '投稿文は150文字以内で入力してください',
+        ];
+        // dd($message);
+
+        $validatedData = $request->validate([
+            'upPost' => 'required|min:1|max:150',
+        ], $message);
+
+
         $id = $request->input('id');
         $up_post = $request->input('upPost');
         Post::where('id',$id)->update(['post'=>$up_post]);
