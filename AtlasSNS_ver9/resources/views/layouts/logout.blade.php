@@ -23,10 +23,10 @@
         <link rel="apple-touch-icon-precomposed" href="画像のURL" />
     </head>
     <body>
-        <header>
-            <div class="login-header">
+        <header class="login-header">
+            <div>
                 <div class="top-logo">
-                    <img src="images/atlas.png"width="150" height="60">
+                    <img src="images/atlas.png"width="150" height="55">
                 </div>
                 <p class="top-title">Social Network Service</p>
             </div>

@@ -55,9 +55,9 @@ Route::get('top', [PostsController::class, 'index']);
 Route::get('profile', [ProfileController::class, 'profile']);
 
 // プロフィール画面の表示
-Route::get('users/profile', [ProfileController::class, 'profile'])->name('profile');
+// Route::get('users/profile', [ProfileController::class, 'profile'])->name('profile');
 // プロフィールを更新させる
-Route::post('users/profile', [ProfileController::class, 'updateProfile'])->name('profile.update');
+Route::post('/profile', [ProfileController::class, 'updateProfile'])->name('profile.update');
 
 //他ユーザーのプロフィール画面へ
 Route::get('users/profile/{id}', [UsersController::class, 'show'])->name('profile.show');

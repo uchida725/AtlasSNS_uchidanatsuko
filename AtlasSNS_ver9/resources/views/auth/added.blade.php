@@ -1,10 +1,20 @@
 <x-logout-layout>
-  <div id="clear">
-    <p>{{ session('username')}}さん</p>
-    <p>ようこそ！AtlasSNSへ！</p>
-    <p>ユーザー登録が完了しました。</p>
-    <p>早速ログインをしてみましょう。</p>
+<section class="login-container">
+  <div class="login-card">
+    <div id="clear">
+      <div class="add-title">
+        <p>{{ session('username')}}さん<br>ようこそ！AtlasSNSへ！</p>
+      </div>
 
-    <p class="btn"><a href="login">ログイン画面へ</a></p>
+      <div class="add-comment">
+        <p>ユーザー登録が完了しました。<br>早速ログインをしてみましょう。</p>
+      </div>
+
+
+    <p class="add-login-button"><a href="login">ログイン画面へ</a></p>
   </div>
+  </div>
+
+</section>
+
 </x-logout-layout>

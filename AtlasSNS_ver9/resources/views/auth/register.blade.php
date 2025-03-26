@@ -1,8 +1,11 @@
 <x-logout-layout>
-    <!-- 適切なURLを入力してください -->
+<section class="login-container">
+  <div class="login-card">
+
 {!! Form::open(['url' => '/register']) !!}
 
-<h2>新規ユーザー登録</h2>
+
+<p class="welcome">新規ユーザー登録</p>
 
 
 <!-- ↓バリデーションに引っ掛かった時に、ビューファイルにエラーメッセージが出るように設定 -->
@@ -15,24 +18,37 @@
           </ul>
         </div>
     @endif
-
-{{ Form::label('ユーザー名') }}
+<div class="input-group">
+  {{ Form::label('ユーザー名') }}
 {{ Form::text('username',null,['class' => 'input']) }}
+</div>
 
-{{ Form::label('メールアドレス') }}
+
+<div class="input-group">
+  {{ Form::label('メールアドレス') }}
 {{ Form::email('email',null,['class' => 'input']) }}
+</div>
 
-{{ Form::label('パスワード') }}
+<div class="input-group">
+  {{ Form::label('パスワード') }}
 {{ Form::text('password',null,['class' => 'input']) }}
+</div>
 
-{{ Form::label('パスワード確認') }}
+<div class="input-group">
+  {{ Form::label('パスワード確認') }}
 {{ Form::text('password_confirmation',null,['class' => 'input']) }}
+</div>
 
-{{ Form::submit('登録') }}
+<div class="button-container">
+  {{ Form::submit('新規登録', ['class' => 'login-button']) }}
+</div>
 
-<p><a href="login">ログイン画面へ戻る</a></p>
+
+<p class="register-link"><a href="login">ログイン画面へ戻る</a></p>
 
 {!! Form::close() !!}
 
+  </div>
+</section>
 
 </x-logout-layout>
