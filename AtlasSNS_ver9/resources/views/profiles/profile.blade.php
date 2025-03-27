@@ -11,7 +11,13 @@
 @endif
 <div class="profile-content">
   <div class="profile-left">
-  <img class="update-icon" src="{{ asset('storage/' . Auth::user()->icon_image) }}"width="50" height="50" class="up-icon">
+     @if(Auth::user()->icon_image !== 'icon1.png')
+ <p class="up-icon"><img src="{{ asset('storage/' . Auth::user()->icon_image) }}" width="50" height="50">
+</p>
+@else
+   <img src="{{ asset('images/icon1.png') }}" alt="初期アイコン" class="up-icon" width="50" height="50">
+@endif
+
 </div>
 <div class="update-form">
      <!--ユーザー名-->

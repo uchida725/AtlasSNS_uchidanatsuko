@@ -16,7 +16,13 @@
                     <li><a href="/logout"><p class="am-tag">ログアウト</p></a></li>
                 </ul>
     </nav>
-    <div class="header-icon"><img src="{{ asset('storage/' . Auth::user()->icon_image) }}"></div>
+
+    @if(Auth::user()->icon_image !== 'icon1.png')
+ <p class="header-icon"><img src="{{ asset('storage/' . Auth::user()->icon_image) }}">
+</p>
+@else
+   <img src="{{ asset('images/icon1.png') }}" alt="初期アイコン" class="header-icon">
+@endif
                     </div>
                 </div>
             </div>

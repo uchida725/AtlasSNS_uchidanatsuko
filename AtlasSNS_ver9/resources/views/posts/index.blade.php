@@ -15,19 +15,20 @@
 
 <div class="form-group">
 
-@if(isset($icon) && $icon !== '')
-    <p class="page-header"><img src="{{ asset('storage/' . $icon->Auth::user()->icon_image) }}"width="50"height="50">
+@if(Auth::user()->icon_image !== 'icon1.png')
+ <p class="page-header"><img src="{{ asset('storage/' . Auth::user()->icon_image) }}"width="50"height="50">
+</p>
 @else
-    <img src="{{ asset('images/icon1.png') }}" alt="初期アイコン" class="page-header">
+   <img src="{{ asset('images/icon1.png') }}" alt="初期アイコン" class="page-header">
 @endif
-
-
 
   {{ Form::input('text', 'newPost', null, ['required', 'class' => 'form-control', 'placeholder' => '投稿内容を入力してください。']) }}
   <button type="submit" class="btn pull-right"><img src="images/post.png"width="50"height="50" alt="送信"></button>
 </div>
 {!! Form::close() !!}
 </div>
+
+
 <div>
   @foreach ($list as $list)
 <div class="list">

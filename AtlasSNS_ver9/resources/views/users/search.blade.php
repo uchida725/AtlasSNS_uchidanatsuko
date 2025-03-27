@@ -25,7 +25,7 @@
 
   <div class="search-list">
     <div class="icon-space">
-       <img src="{{ asset('storage/' . $user->icon_image) }}" alt="icon">
+      <img src="{{ asset('storage/' . $user->icon_image) }}" alt="icon">
     </div>
     <div class="search-name">
       {{ $user -> username }}
