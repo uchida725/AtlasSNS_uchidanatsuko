@@ -37,6 +37,9 @@ class UsersController extends Controller
 
     }
 
+
+
+
     public function follow(User $data)
     {
         $follower = Auth::User();

@@ -22,6 +22,16 @@ class PostsController extends Controller
         return view('posts.index',['list'=>$list,'user_id'=>$user_id]);
     }
 
+   public function icon()
+{
+    $user = Auth::user(); // ログイン中のユーザー取得
+    $icon = $user->icon_image; // ユーザーのアイコン画像ファイル名（例：icon2.png）
+
+    return view('posts.index');
+}
+
+
+
 // 投稿の作成
     public function postCreate(Request $request)
     {
