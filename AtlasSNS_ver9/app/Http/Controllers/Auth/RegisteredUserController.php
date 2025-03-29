@@ -34,7 +34,7 @@ class RegisteredUserController extends Controller
         //バリデーション設定
         $request->validate([
               'username' => 'required|min:2|max:12',
-              'email' => 'required|string|unique:users,email|email:strict,dns,spoof|min:5|max:40',
+              'email' => 'required|string|email:strict,dns|min:5|max:40|unique:users,email',
               'password' => 'required|alpha_num|min:8|max:20|confirmed',
               'password_confirmation' => 'required|alpha_num|min:8|max:20',
         ]);

@@ -4,11 +4,7 @@
     @csrf
     {{Form::hidden('id',Auth::user()->id)}}
 
-@if (session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-@endif
+
 <div class="profile-content">
   <div class="profile-left">
      @if(Auth::user()->icon_image !== 'icon1.png')

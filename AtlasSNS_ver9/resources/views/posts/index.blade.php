@@ -39,7 +39,7 @@
     <div class="post-username">{{ $list->user->username }}</div>
   </div>
   <div class="post-user">
-    <div>{{$list->post}}</div>
+    <div>{!! nl2br(e($list->post)) !!}</div>
 </div>
 <!-- 自分の投稿のみ編集・削除ができるようにif文で設定 -->
 @if ($user_id == $list->user_id)

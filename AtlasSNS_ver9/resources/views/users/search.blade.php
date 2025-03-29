@@ -3,12 +3,13 @@
   <div class="search-form">
     {!! Form::open(['url' => '/search', 'class' => 'post-form']) !!}
 {{ Form::input('text', 'searchWord', null, ['required', 'class' => 'search', 'placeholder' => 'ユーザー名']) }}
-{!! Form::close() !!}
+
   </div>
 <div class="search-btn">
   <button type="submit" class="search-btn">
   <img src="images/search.png" width="50" height="50"></button>
 </div>
+{!! Form::close() !!}
 
 @if(!empty($searchWord))
 <div class="search-word">

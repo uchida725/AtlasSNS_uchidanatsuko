@@ -81,6 +81,6 @@ class PostsController extends Controller
     public function delete($id)
     {
         Post::where('id', $id)->delete();
-        return redirect('/top');
+        return redirect('/top')->with('success', 'プロフィールを更新しました！');
     }
 }
